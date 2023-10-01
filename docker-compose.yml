@@ -10,4 +10,9 @@ services:
       - 1337:1337
     volumes:
       - ./tmp:/usr/src/app/tmp
+      - ./config:/usr/src/app/config
+      - ./database:/usr/src/app/database
+      - ./public:/usr/src/app/public
+      - ./src:/usr/src/app/src
+      - ./types:/usr/src/app/types
     restart: always      
