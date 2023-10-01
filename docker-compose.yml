@@ -1,0 +1,13 @@
+version: '3'
+
+services:
+  strapi:
+    container_name: strapi
+    build:
+      context: .
+      dockerfile: Dockerfile    
+    ports:
+      - 1337:1337
+    volumes:
+      - ./tmp:/usr/src/app/tmp
+    restart: always      

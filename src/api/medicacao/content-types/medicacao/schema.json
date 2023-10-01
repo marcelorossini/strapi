@@ -1,0 +1,24 @@
+{
+  "kind": "collectionType",
+  "collectionName": "medicacoes",
+  "info": {
+    "singularName": "medicacao",
+    "pluralName": "medicacoes",
+    "displayName": "Medicação",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "pessoa": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::pessoa.pessoa"
+    },
+    "data": {
+      "type": "date"
+    }
+  }
+}
