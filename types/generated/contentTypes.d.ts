@@ -362,73 +362,6 @@ export interface AdminTransferTokenPermission extends Schema.CollectionType {
   };
 }
 
-export interface ApiMedicacaoMedicacao extends Schema.CollectionType {
-  collectionName: 'medicacoes';
-  info: {
-    singularName: 'medicacao';
-    pluralName: 'medicacoes';
-    displayName: 'Medica\u00E7\u00E3o';
-    description: '';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    pessoa: Attribute.Relation<
-      'api::medicacao.medicacao',
-      'oneToOne',
-      'api::pessoa.pessoa'
-    >;
-    data: Attribute.Date;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      'api::medicacao.medicacao',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<
-      'api::medicacao.medicacao',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-  };
-}
-
-export interface ApiPessoaPessoa extends Schema.CollectionType {
-  collectionName: 'pessoas';
-  info: {
-    singularName: 'pessoa';
-    pluralName: 'pessoas';
-    displayName: 'Pessoa';
-    description: '';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    nome: Attribute.String;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      'api::pessoa.pessoa',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<
-      'api::pessoa.pessoa',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-  };
-}
-
 export interface PluginUploadFile extends Schema.CollectionType {
   collectionName: 'files';
   info: {
@@ -744,6 +677,73 @@ export interface PluginI18NLocale extends Schema.CollectionType {
   };
 }
 
+export interface ApiMedicacaoMedicacao extends Schema.CollectionType {
+  collectionName: 'medicacoes';
+  info: {
+    singularName: 'medicacao';
+    pluralName: 'medicacoes';
+    displayName: 'Medica\u00E7\u00E3o';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    pessoa: Attribute.Relation<
+      'api::medicacao.medicacao',
+      'oneToOne',
+      'api::pessoa.pessoa'
+    >;
+    data: Attribute.Date;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::medicacao.medicacao',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::medicacao.medicacao',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiPessoaPessoa extends Schema.CollectionType {
+  collectionName: 'pessoas';
+  info: {
+    singularName: 'pessoa';
+    pluralName: 'pessoas';
+    displayName: 'Pessoa';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    nome: Attribute.String;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::pessoa.pessoa',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::pessoa.pessoa',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 declare module '@strapi/types' {
   export module Shared {
     export interface ContentTypes {
@@ -754,14 +754,14 @@ declare module '@strapi/types' {
       'admin::api-token-permission': AdminApiTokenPermission;
       'admin::transfer-token': AdminTransferToken;
       'admin::transfer-token-permission': AdminTransferTokenPermission;
-      'api::medicacao.medicacao': ApiMedicacaoMedicacao;
-      'api::pessoa.pessoa': ApiPessoaPessoa;
       'plugin::upload.file': PluginUploadFile;
       'plugin::upload.folder': PluginUploadFolder;
       'plugin::users-permissions.permission': PluginUsersPermissionsPermission;
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
       'plugin::i18n.locale': PluginI18NLocale;
+      'api::medicacao.medicacao': ApiMedicacaoMedicacao;
+      'api::pessoa.pessoa': ApiPessoaPessoa;
     }
   }
 }
